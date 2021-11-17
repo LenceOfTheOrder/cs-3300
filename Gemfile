@@ -49,6 +49,8 @@ group :development, :test do
   gem 'sqlite3'
   # Add rspec so we can use it to make our tests
   gem 'rspec-rails', '~> 3.7'
+  # Add capybara so we can simulate user interactions for integration and system testing
+  gem 'capybara'
 end
 
 group :development do
@@ -62,10 +64,12 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+ # gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  # Add simplecov, a test-coverage reporting tool
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
