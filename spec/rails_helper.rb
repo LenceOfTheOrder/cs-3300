@@ -67,4 +67,7 @@ SimpleCov.start 'rails' do
   add_filter '/bin/'
   add_filter '/db/'
   add_filter '/spec/' # for rspec
+  add_filter '/channels/application_cable/' # we don't have or need websockets
+  add_filter '/mailers/' # we don't have mailers
+  add_filter '/jobs/' # nor jobs
 end
