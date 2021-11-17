@@ -6,9 +6,6 @@ RSpec.describe "The math below is wrong..." do
   end
 end
 
-
-require "rails_helper"
-
 RSpec.describe "hello spec" do
   # ...
   describe String do
