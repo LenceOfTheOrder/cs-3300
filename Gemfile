@@ -42,6 +42,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Required as part of setting up rspec?
 gem 'mini_racer'
 
+# For authenticating users
+gem 'devise'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
