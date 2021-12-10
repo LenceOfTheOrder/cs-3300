@@ -5,8 +5,11 @@ require 'rails_helper'
 #end
 
 RSpec.feature "Projects", type: :feature do
+  login_user
+
   context "Create new project" do
     before(:each) do
+      # login_user
       visit new_project_path
       within("form") do
         fill_in "Title", with: "Test title"
