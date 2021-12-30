@@ -81,5 +81,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# include bootstrap so we can make our responsibe UI
+# include bootstrap so we can make our responsive UI
 gem 'bootstrap', '~> 4.6.1'
+
+# We're using Rails 5.2.4, so we add jquery-rails, on which Bootstrap JavaScript depends
+gem 'jquery-rails'

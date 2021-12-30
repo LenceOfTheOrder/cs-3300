@@ -14,3 +14,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//
+// below is for bootstrap
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+// "While bootstrap-sprockets provides individual Bootstrap components for ease of debugging,
+// you may alternatively require the concatenated bootstrap for faster compilation"
