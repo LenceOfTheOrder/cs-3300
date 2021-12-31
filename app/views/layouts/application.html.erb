@@ -11,6 +11,29 @@
   </head>
 
   <body>
-    <%= yield %>
+    
+    <%
+    # Originally, I did not have a "shared" folder, 
+    # but after (attempting) troubleshooting why my "render" statement as specified in
+    # https://guides.rubyonrails.org/layouts_and_rendering.html#using-partials,
+    # was not working for over two hours, I was following the video at
+    # https://gorails.com/episodes/rails-for-beginners-part-8-using-partials-for-the-navbar,
+    # creating a shared folder as spec— and that's when I spotted it, taunting me: the missing '=' in '<%='.
+    # All my suffering was due to something as simple as a syntax error!
+    # I am very annoyed as I hadn't made a syntax error that took this long to debug 
+    # in at least a couple years! Of course, when I added the missing '=', 
+    # the navbar worked immediately, but I decided to keep the 'shared' folder
+    # because it makes more sense to have a partial view that is rendered in many/all 
+    # layouts in a separate folder under 'views/' than 'views/layouts' since 
+    # views and layouts serve different purposes and 'shared/_navbar.html.erb' is 
+    # a (partial) view, not a layout.
+    %>
+
+    <%= render partial: "shared/navbar" %>
+    
+    <div class="container">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
