@@ -15,4 +15,7 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 // Default bootstrap variables at https://github.com/twbs/bootstrap-rubygem/blob/4.6-stable/assets/stylesheets/bootstrap/_variables.scss
 @import "bootstrap_cust_vars";
-@import "bootstrap";
+// @import "bootstrap";
+// Custom explicitly imported Bootstrap components as specified at the page linked below
+// https://github.com/twbs/bootstrap-rubygem/tree/4.6-stable#sass-individual-components
+@import 'bootstrap-custom';
