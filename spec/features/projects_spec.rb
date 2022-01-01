@@ -11,7 +11,9 @@ RSpec.feature "Projects", type: :feature do
     before(:each) do
       # login_user
       visit new_project_path
-      within("form") do
+      # Increase specificity to allow more than one form (e.g. a search box and the projects form) 
+      # to simultaneously exist on the same page.
+      within(find_by_id("ProjectForm")) do
         fill_in "Title", with: "Test title"
       end
     end
@@ -35,7 +37,7 @@ RSpec.feature "Projects", type: :feature do
     end
 
     scenario "should be successful" do
-      within("form") do
+      within(find_by_id("ProjectForm")) do
         fill_in "Description", with: "New description content"
       end
       click_button "Update Project"
@@ -43,7 +45,7 @@ RSpec.feature "Projects", type: :feature do
     end
 
     scenario "should fail" do
-      within("form") do
+      within(find_by_id("ProjectForm")) do
         fill_in "Description", with: ""
       end
       click_button "Update Project"
