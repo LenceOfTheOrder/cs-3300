@@ -10,8 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    
+  <header>
     <%
     # Originally, I did not have a "shared" folder, 
     # but after (attempting) troubleshooting why my "render" statement as specified in
@@ -28,12 +27,12 @@
     # views and layouts serve different purposes and 'shared/_navbar.html.erb' is 
     # a (partial) view, not a layout.
     %>
-
     <%= render partial: "shared/navbar" %>
-    
+  </header>
+
+  <body>
     <div class="container">
       <%= yield %>
     </div>
-
   </body>
 </html>
