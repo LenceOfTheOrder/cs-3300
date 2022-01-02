@@ -24,6 +24,27 @@
 // $enable-deprecation-messages:                 true;
 
 
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: $spacer,
+    4: ($spacer * 1.5),
+    5: ($spacer * 3)
+  ),
+  $spacers
+);
+
+
 // Settings for the `<body>` element.
 
 // $body-bg:                   $white;
@@ -210,7 +231,7 @@
 
 // Navbar
 
-// $navbar-padding-y:                  $spacer * .5;
+$navbar-padding-y:                  $spacer * .25; // Default: $spacer * .5
 // $navbar-padding-x:                  $spacer;
 
 // $navbar-nav-link-padding-x:         .5rem;
@@ -346,30 +367,3 @@
 // $thumbnail-border-color:            $gray-300;
 // $thumbnail-border-radius:           $border-radius;
 // $thumbnail-box-shadow:              0 1px 2px rgba($black, .075);
-
-
-// Carousel
-
-// $carousel-control-color:             $white;
-// $carousel-control-width:             15%;
-// $carousel-control-opacity:           .5;
-// $carousel-control-hover-opacity:     .9;
-// $carousel-control-transition:        opacity .15s ease;
-
-// $carousel-indicator-width:           30px;
-// $carousel-indicator-height:          3px;
-// $carousel-indicator-hit-area-height: 10px;
-// $carousel-indicator-spacer:          3px;
-// $carousel-indicator-active-bg:       $white;
-// $carousel-indicator-transition:      opacity .6s ease;
-
-// $carousel-caption-width:             70%;
-// $carousel-caption-color:             $white;
-
-// $carousel-control-icon-width:        20px;
-
-// $carousel-control-prev-icon-bg:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' width='8' height='8' viewBox='0 0 8 8'><path d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/></svg>");
-// $carousel-control-next-icon-bg:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' width='8' height='8' viewBox='0 0 8 8'><path d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/></svg>");
-
-// $carousel-transition-duration:       .6s;
-// $carousel-transition:                transform $carousel-transition-duration ease-in-out; // Define transform transition first if using multiple transitions (e.g., `transform 2s ease, opacity .5s ease-out`)
