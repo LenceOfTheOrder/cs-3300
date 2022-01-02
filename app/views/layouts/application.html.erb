@@ -10,6 +10,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header>
+    <%= render partial: "shared/navbar" %>
+  </header>
+
   <body>
     
     <%
@@ -28,8 +32,6 @@
     # views and layouts serve different purposes and 'shared/_navbar.html.erb' is 
     # a (partial) view, not a layout.
     %>
-
-    <%= render partial: "shared/navbar" %>
     
     <div class="container">
       <%= yield %>
