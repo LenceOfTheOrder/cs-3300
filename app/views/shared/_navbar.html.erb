@@ -1,7 +1,9 @@
+<%
 # Adapted from Bootstrap 4 "Jumbotron" example
 # https://getbootstrap.com/docs/4.0/examples/jumbotron/
 # Source code obtained by clicking "Download source code" button at
 # https://getbootstrap.com/docs/4.0/examples/
+%>
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <a class="navbar-brand" href="/">Navbar</a>
@@ -11,27 +13,74 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active" ac>
-        <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link active" href="/" onclick="activateThisElem(this)" id="homeBtn">
+          Home
+          <span class="sr-only" id="currentPageIndicator">(current)</span>
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="#" onclick="activateThisElem(this)" id="aboutBtn">About</a>
       </li>
     </ul>
     
-    <form class="form-inline my-2 my-lg-0" id="Searchbox" style="padding">
+    <form class="form-inline my-2 my-lg-0" id="Searchbox" style="padding: 5px">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
 
-    <button>
-      <% if user_signed_in?  %>
-        <a class="btn btn-dark" href="/users/sign_out" role="button">Sign out</a>
-      <% else %>
-        <a class="btn btn-dark" href="/users/sign_in" role="button"> Sign In / Sign Up </a>
-      <% end %>
-    </button>
-  
+    <% if user_signed_in?  %>
+      <button class="btn btn-dark" href="/users/sign_out" role="button">Sign out</button>
+    <% else %>
+      <button class="btn btn-dark" href="/users/sign_in" role="button"> Sign In / Sign Up </button>
+    <% end %>
   </div>
-
+  
 </nav>
+
+<%
+  # <script>
+  # $("#navbarsExampleDefault .navbar-nav a").on('click', function () {
+  #   $("#navbarsExampleDefault .navbar-nav").find('li.nav-item.active').removeClass('active');
+  #   $(this).parent('li.nav-item').addClass('active');
+  #   });
+  # </script>
+%>
+
+<script>
+function activateThisElem(elem) {
+  /*
+  Using activateThisElem(document.getElementById("homeBtn"));
+in the devtools console does the expected behavior of removing 
+  the "active" class from all other (navbar) elements, 
+  and adding the "active" class to the elem with id "homeBtn"
+  (works the same way for "aboutBtn" too), however this function 
+  does not work when called via the "onclick" attribute of the buttons,
+  or rather, they do work (as evidenced by debugging via print 
+  statements in addition to the the very brief flicker between 
+  the expected behavior and the reset), but their respective elements are immediately
+  reset to their default states. I suspect this is due to the onclick
+  function being called before the following the href link, which changes/reloads
+  the page. I'm not sure how to fix it yet though.
+  */
+	// This gives us the navbar elements (currently 'Home' and 'About')
+	//var s2 = $("#navbarsExampleDefault .navbar-nav");
+	// var subElems = $("#navbarsExampleDefault .navbar-nav active");
+	//var subElems = $("#navbarsExampleDefault .navbar-nav li");
+  //console.log(s2);
+	// subElems = s2.children();
+	//console.log(subElems);
+  console.log(elem.id);
+  $("#navbarsExampleDefault .navbar-nav a").removeClass("active");
+	//if (subElems.hasClass('active')) {
+	//	subElems.removeClass('active');
+	//} // else (this should not happen)
+	
+	//elem.classList.add('active');
+  var el = $(document.getElementById(elem.id));
+  if (! elem.classList.contains('active') ) {
+    el.addClass('active');
+  }
+
+}
+</script>
