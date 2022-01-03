@@ -15,8 +15,7 @@ jobs:
           name: rspec
           command: bundle install && bundle exec rake db:migrate RAILS_ENV=test && bundle exec rspec
       - store_artifacts:
-          path: ../coverage/index.html
-          destination: cov_artifact
+          path: coverage
 
   deploy:
     executor: heroku/default
