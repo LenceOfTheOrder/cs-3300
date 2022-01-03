@@ -4,16 +4,30 @@ version: 2.1
 orbs:
   heroku: circleci/heroku@1.2.6
 
+# Collecting test metadata:
+# https://circleci.com/docs/2.0/collect-test-data/#rspec
+
 jobs:
   build:
     docker:
       - image: 'tghastings/code-esaas'
-    parallelism: 4
     steps:
       - checkout
       - run:
-          name: rspec
-          command: bundle install && bundle exec rake db:migrate RAILS_ENV=test && bundle exec rspec
+          name: Bundle Install
+          command: bundle install
+      - run:
+          name: DB Migrations
+          command: bundle exec rake db:migrate RAILS_ENV=test
+      - run: 
+          name: Make test results storage directory
+          command: mkdir ~/rspec
+      - run:
+          name: Run Tests
+          command: bundle exec rspec --format progress --format RspecJunitFormatter -o ~/rspec/rspec.xml
+          when: always
+      - store_test_results:
+          path: ~/rspec
       - store_artifacts:
           path: coverage
 

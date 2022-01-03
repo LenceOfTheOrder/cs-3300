@@ -76,6 +76,8 @@ group :test do
   # "FactoryBot is a great tool for creating test objects in RSpec. In this case, creating a User for each test."
   # https://www.matthewhoelter.com/2019/09/12/setting-up-and-testing-rails-6.0-with-rspec-factorybot-and-devise.html
   gem 'factory_bot_rails'
+  # For collecting test metadata in circleci
+  gem 'rspec_junit_formatter'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
