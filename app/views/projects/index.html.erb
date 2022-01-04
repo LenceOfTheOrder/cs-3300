@@ -1,84 +1,110 @@
 <p id="notice"><%= notice %></p>
 
-<div class="row justify-content-between align-content-center" style="
-	align-items: stretch;
-	margin-top: 1rem;
-	margin-bottom: 2rem;
-">
-	<div class="col">
-		<h1>Projects</h1>
+<section class="jumbotron" style="margin-top: 5rem; margin-bottom: -3rem;">
+	<div class="container">
+		<h1 class="jumbotron-heading">
+			<% # I tried to go for CRT-Screen-Green, but it turns out that this color (#4aff00 at 525nm according to an online calculator) is not web-accesible,
+			# so I went a a few shades darker to obtain an AA accessibility rating according to DevTools.
+			%>
+			<code style="font-size: 100%; color: #279a00;">
+				Hello, World!
+			</code>
+		</h1>
+		<p class="lead text-muted">
+			Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.
+		</p>
+		<p>
+			<a href="#" class="btn btn-primary my-2">Main call to action</a>
+			<a href="#" class="btn btn-secondary my-2">Secondary action</a>
+		</p>
+	</div>
+</section>
+
+<br>
+
+<div class="container" style="margin-top: 4.5rem;"">
+
+	<div class="row justify-content-between align-content-center" style="
+		align-items: stretch;
+		margin-top: 1rem;
+		margin-bottom: 2rem;
+	">
+		<div class="col">
+			<h1>Projects</h1>
+		</div>
+
+		<div class="col" style="text-align: right;">
+			<% # < % = link_to 'New Project', new_project_path % >
+			# I couldn't find a way to use the style attribute with the above,
+			# and since I had to manually fine tune the styles via Chrome Devtools anyway, 
+			# I'm using the styled version of the resultant anchor tag from the above < % = % > block.
+			# (interestingly, it caused errors when the angle bracket/percent were combined
+			# even though they're in a comment block).
+			%>
+
+			<a href="/projects/new" style="
+				white-space: nowrap;
+				font-size: xx-large;
+				padding: 0.5rem;
+			">
+				New Project
+			</a>
+		</div>
 	</div>
 
-	<div class="col" style="text-align: right;">
-		<% # < % = link_to 'New Project', new_project_path % >
-		# I couldn't find a way to use the style attribute with the above,
-		# and since I had to manually fine tune the styles via Chrome Devtools anyway, 
-		# I'm using the styled version of the resultant anchor tag from the above < % = % > block.
-		# (interestingly, it caused errors when the angle bracket/percent were combined
-		# even though they're in a comment block).
-		%>
+	<% # Adapted solution for grid from https://stackoverflow.com/a/20818696 
+	%>
 
-		<a href="/projects/new" style="
-			white-space: nowrap;
-			font-size: xx-large;
-			padding: 0.5rem;
-		">
-			New Project
-		</a>
-	</div>
-</div>
-
-<% # Adapted solution for grid from https://stackoverflow.com/a/20818696 
-%>
-
-<% @projects.each_slice(3) do |first_three| %>
-	<div class="row" style="margin-top: 1rem; margin-bottom: 1rem;">
-		<% first_three.each do |project| %>
-			<div class="col-sm">
-			
-				<% # <div class="card" style="min-height: 20rem">
-				%>
-				<div class="card">
-					<% #  <img class="card-img-top" src="..." alt="Card image cap">
+	<% @projects.each_slice(3) do |first_three| %>
+		<div class="row" style="margin-top: 1rem; margin-bottom: 1rem;">
+			<% first_three.each do |project| %>
+				<div class="col-sm">
+				
+					<% # <div class="card" style="min-height: 20rem">
 					%>
-					<div class="card-header" style="padding: .75rem 1.25rem;">
-						<h5 class="card-title"><%= project.title %></h5>
-					</div>
-					
-					<div class="card-body" style="padding: 1.25rem">
-						<p class="card-text"><%= project.description %></p>
-					</div>
+					<div class="card">
+						<% #  <img class="card-img-top" src="..." alt="Card image cap">
+						%>
+						<div class="card-header" style="padding: .75rem 1.25rem;">
+							<h5 class="card-title"><%= project.title %></h5>
+						</div>
+						
+						<div class="card-body" style="padding: 1.25rem">
+							<p class="card-text"><%= project.description %></p>
+						</div>
 
-					<% 
-					# TODO some other time: implement a more detailed model to hold more project metadata
-					#  and the corresponding updated view
-					# <ul class="list-group list-group-flush" style="padding: 0.5rem 2.25rem;">
-					#   <li class="list-group-item">Created for a class: </li>
-					#   <li class="list-group-item">Course title: </li>
-					#   <li class="list-group-item">Date taken: </li>
-					# </ul>
-					%>
+						<% 
+						# TODO some other time: implement a more detailed model to hold more project metadata
+						#  and the corresponding updated view
+						# <ul class="list-group list-group-flush" style="padding: 0.5rem 2.25rem;">
+						#   <li class="list-group-item">Created for a class: </li>
+						#   <li class="list-group-item">Course title: </li>
+						#   <li class="list-group-item">Date taken: </li>
+						# </ul>
+						%>
 
-					<div class="card-footer">
-						<div class="d-flex flex-column">
-							<ul class="nav justify-content-around align-items-center">
-								<li class="nav-item nav-link">
-									<%= link_to 'Show', project %>
-								</li>
-								<li class="nav-item nav-link">
-									<%= link_to 'Edit', edit_project_path(project) %>
-								</li>
-								<li class="nav-item nav-link">
-									<%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
-								</li>
-							</ul>
+						<div class="card-footer">
+							<div class="d-flex flex-column">
+								<ul class="nav justify-content-around align-items-center">
+									<li class="nav-item nav-link">
+										<%= link_to 'Show', project %>
+									</li>
+									<li class="nav-item nav-link">
+										<%= link_to 'Edit', edit_project_path(project) %>
+									</li>
+									<li class="nav-item nav-link">
+										<%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</div>
+
 				</div>
 
-			</div>
+			<% end %>
+		</div>
 
-		<% end %>
-	</div>
+	<% end %>
 
-<% end %>
+</div>
