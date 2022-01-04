@@ -19,3 +19,47 @@
 // Custom explicitly imported Bootstrap components as specified at the page linked below
 // https://github.com/twbs/bootstrap-rubygem/tree/4.6-stable#sass-individual-components
 @import 'bootstrap-custom';
+
+.card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-width: 290px; // IMPORTANT TO-INCLUDE
+	/* max-width: 320px; */
+	min-height: 360px; // IMPORTANT TO-INCLUDE
+	word-wrap: normal; // doesn't seem to do anything...
+	background-color: #fff;
+	background-clip: border-box;
+	border: 1px solid rgba(0, 0, 0, 0.125);
+	border-radius: 0.25rem;
+	justify-content: space-around; // doesn't seem to do anything...
+	flex-wrap: wrap; // doesn't seem to do anything...
+	/*
+	While it may look better without this on a sufficiently large screen, it does not look good without this on a small screen because
+	the rows the inter-column spacing does not transform to vertical spacing when the screen is too small to show complete rows.
+	In other words, without the below, the cards in each rows are stacked on top of each other without any gap.
+	*/
+	margin-bottom: 1rem;
+}
+
+.card-header {
+	//*	padding: 0.75rem 1.25rem;
+		margin-bottom: 0;
+		background-color: rgba(0, 0, 0, 0.03);
+		border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+		/* white-space: nowrap; */
+		max-height: 6rem; // IMPORTANT TO-INCLUDE
+		min-height: 5.5rem; // IMPORTANT TO-INCLUDE
+		text-align: center; // IMPORTANT TO-INCLUDE
+	//*	padding-top: 2rem; // maybe include?
+}
+
+.card-body {
+	flex: 1 1 auto;
+	min-height: 15rem; // may include
+	/* min-width: fit-content; */
+	/* max-width: 320px; */
+//*	padding: 1.25rem;
+	overflow-wrap: break-word; // may include
+}
+

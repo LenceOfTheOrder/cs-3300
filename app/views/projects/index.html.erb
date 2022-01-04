@@ -10,6 +10,14 @@
 	</div>
 
 	<div class="col" style="text-align: right;">
+		<% # < % = link_to 'New Project', new_project_path % >
+		# I couldn't find a way to use the style attribute with the above,
+		# and since I had to manually fine tune the styles via Chrome Devtools anyway, 
+		# I'm using the styled version of the resultant anchor tag from the above < % = % > block.
+		# (interestingly, it caused errors when the angle bracket/percent were combined
+		# even though they're in a comment block).
+		%>
+
 		<a href="/projects/new" style="
 			white-space: nowrap;
 			font-size: xx-large;
@@ -24,7 +32,7 @@
 %>
 
 <% @projects.each_slice(3) do |first_three| %>
-	<div class="row" style="margin-top: 1rem; margin-bottom: 2rem;">
+	<div class="row" style="margin-top: 1rem; margin-bottom: 1rem;">
 		<% first_three.each do |project| %>
 			<div class="col-sm">
 			
@@ -74,7 +82,3 @@
 	</div>
 
 <% end %>
-
-<br>
-
-<%= link_to 'New Project', new_project_path %>
