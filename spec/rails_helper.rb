@@ -81,4 +81,10 @@ SimpleCov.start 'rails' do
   add_filter '/channels/application_cable/' # we don't have or need websockets
   add_filter '/mailers/' # we don't have mailers
   add_filter '/jobs/' # nor jobs
+  add_filter '/helpers/application_helper.rb' # this 2-line file has only auto-generated code
+  add_filter '/helpers/projects_helper.rb' # this 2-line file has only auto-generated code
+  add_filter '/models/application_record.rb' # this 3-line file has only auto-generated code
+  # Commented the below out because at some point in the future, I would like to implement the :confirmable module, 
+  # which would require testing
+  # add_filter '/models/user.rb' # this file only "Includes" Devise's default modules
 end
