@@ -86,5 +86,6 @@ SimpleCov.start 'rails' do
   add_filter '/models/application_record.rb' # this 3-line file has only auto-generated code
   # Commented the below out because at some point in the future, I would like to implement the :confirmable module, 
   # which would require testing
-  # add_filter '/models/user.rb' # this file only "Includes" Devise's default modules
+  # Uncommented out because I don't currently need to test it, and doing so will give me a nice, shiny 100% coverage.
+  add_filter '/models/user.rb' # this file only "Includes" Devise's default modules
 end
