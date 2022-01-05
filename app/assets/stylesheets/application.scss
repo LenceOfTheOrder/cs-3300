@@ -63,3 +63,25 @@
 	overflow-wrap: break-word; // may include
 }
 
+.form-group {
+	display: flex;
+	margin-bottom: 1rem;
+	align-content: space-around;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	flex-direction: row;
+	align-items: flex-start;
+}
+
+textarea {
+	margin-top: 1rem;
+	margin-bottom: 0px;
+	width: -webkit-fill-available;
+	height: 5rem;
+	overflow: auto;
+	resize: vertical;
+}
+
+input#project_title {
+	width: -webkit-fill-available;
+}

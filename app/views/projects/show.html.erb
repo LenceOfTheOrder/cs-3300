@@ -2,7 +2,7 @@
 
 <div class="jumbotron" style="margin-top: 5rem; margin-bottom: -3rem;">
 	<div class="container">
-		<h1 class="jumbotron-heading">
+		<h1 class="jumbotron-heading" style="margin-botton: 0.5rem">
 			<%= @project.title %>
 		</h1>
 		<p>
@@ -19,9 +19,3 @@
 		</p>
 	</div>
 </div>
-
-<% # See index.html.erb for comment
-%>
-<div>
-<%= render partial: "shared/cards", collection: @projects %>
-<div>

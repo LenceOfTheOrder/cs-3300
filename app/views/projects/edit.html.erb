@@ -1,6 +1,11 @@
-<h1>Editing Project</h1>
-
-<%= render 'form', project: @project %>
-
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>
+<div class="container">
+	<h1 style="margin-top: 5rem; margin-bottom: -3rem;">Editing Project</h1>
+	
+	<br>
+	
+	<div style="margin-top: 3rem">
+		<%= render 'form', project: @project %>
+	</div>
+	
+	<%= link_to 'Back', projects_path %>
+</div>
