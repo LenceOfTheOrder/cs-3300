@@ -55,59 +55,9 @@
 		</div>
 	</div>
 
-	<% # Adapted solution for grid from https://stackoverflow.com/a/20818696 
+	<% # Thanks to the SO answer linked below, I was able to declutter this file, and make the cards a shareable partial
+	# https://stackoverflow.com/a/53974616
 	%>
-
-	<% @projects.each_slice(3) do |first_three| %>
-		<div class="row" style="margin-top: 1rem; margin-bottom: 1rem;">
-			<% first_three.each do |project| %>
-				<div class="col-sm">
-				
-					<% # <div class="card" style="min-height: 20rem">
-					%>
-					<div class="card">
-						<% #  <img class="card-img-top" src="..." alt="Card image cap">
-						%>
-						<div class="card-header" style="padding: .75rem 1.25rem;">
-							<h5 class="card-title"><%= project.title %></h5>
-						</div>
-						
-						<div class="card-body" style="padding: 1.25rem">
-							<p class="card-text"><%= project.description %></p>
-						</div>
-
-						<% 
-						# TODO some other time: implement a more detailed model to hold more project metadata
-						#  and the corresponding updated view
-						# <ul class="list-group list-group-flush" style="padding: 0.5rem 2.25rem;">
-						#   <li class="list-group-item">Created for a class: </li>
-						#   <li class="list-group-item">Course title: </li>
-						#   <li class="list-group-item">Date taken: </li>
-						# </ul>
-						%>
-
-						<div class="card-footer">
-							<div class="d-flex flex-column">
-								<ul class="nav justify-content-around align-items-center">
-									<li class="nav-item nav-link">
-										<%= link_to 'Show', project %>
-									</li>
-									<li class="nav-item nav-link">
-										<%= link_to 'Edit', edit_project_path(project) %>
-									</li>
-									<li class="nav-item nav-link">
-										<%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-			<% end %>
-		</div>
-
-	<% end %>
+	<%= render partial: "shared/cards", projects: @projects %>
 
 </div>
