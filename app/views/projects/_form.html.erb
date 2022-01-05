@@ -1,4 +1,4 @@
-<%= form_with(model: project, local: true, id: "ProjectForm") do |form| %>
+<%= form_with(model: project, local: true, id: "ProjectForm", style:"margin-top: 5rem; margin-bottom: -3rem;") do |form| %>
   <% if project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -11,17 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+	<div class="form-group">
+		<label for="titleField">Title</label>
+		<input type="text" class="form-control" id="titleField" aria-describedby="titleHelp" placeholder="Enter title">
+		<small id="titleHelp" class="form-text text-muted">If possible and relevant, use acronym(s) to shorten as much as possible.</small>
+		
+	</div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+	<div class="form-group">
+		<label for="descriptionField">Description</label>
+		<input type="text" class="form-control" id="descriptionField" aria-describedby="descHelp" placeholder="Enter description">
+		<small id="descHelp" class="form-text text-muted">Briefly describe the project.</small>
+	</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+	<div class="actions">
+    	<%= form.submit %>
+  	</div>
+
 <% end %>
